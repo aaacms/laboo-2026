@@ -185,19 +185,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gabriel Saueressig\\.nuget\\packages\\": {}
+    "C:\\Users\\amand\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gabriel Saueressig\\Documents\\UFSM\\labOO\\laboo-2026\\trabalho1\\trabalho1.csproj",
+      "projectUniqueName": "C:\\Users\\amand\\Documents\\faculdade\\semestre_5\\laboo-2026\\trabalho1\\trabalho1.csproj",
       "projectName": "trabalho1",
-      "projectPath": "C:\\Users\\Gabriel Saueressig\\Documents\\UFSM\\labOO\\laboo-2026\\trabalho1\\trabalho1.csproj",
-      "packagesPath": "C:\\Users\\Gabriel Saueressig\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gabriel Saueressig\\Documents\\UFSM\\labOO\\laboo-2026\\trabalho1\\obj\\",
+      "projectPath": "C:\\Users\\amand\\Documents\\faculdade\\semestre_5\\laboo-2026\\trabalho1\\trabalho1.csproj",
+      "packagesPath": "C:\\Users\\amand\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\amand\\Documents\\faculdade\\semestre_5\\laboo-2026\\trabalho1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Gabriel Saueressig\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\amand\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
