@@ -1,0 +1,40 @@
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\bin\Debug\net10.0\trabalho1.exe
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\bin\Debug\net10.0\trabalho1.deps.json
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\bin\Debug\net10.0\trabalho1.runtimeconfig.json
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\bin\Debug\net10.0\trabalho1.dll
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\bin\Debug\net10.0\trabalho1.pdb
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\bin\Debug\net10.0\Npgsql.dll
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.csproj.AssemblyReference.cache
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.AssemblyInfoInputs.cache
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.AssemblyInfo.cs
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.csproj.CoreCompileInputs.cache
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.sourcelink.json
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.csproj.Up2Date
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.dll
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\refint\trabalho1.dll
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.pdb
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.genruntimeconfig.cache
+C:\Users\amand\Documents\faculdade\semestre_5\laboo-2026\trabalho1\obj\Debug\net10.0\ref\trabalho1.dll
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\bin\Debug\net10.0\trabalho1.exe
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\bin\Debug\net10.0\trabalho1.deps.json
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\bin\Debug\net10.0\trabalho1.runtimeconfig.json
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\bin\Debug\net10.0\trabalho1.dll
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\bin\Debug\net10.0\trabalho1.pdb
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\bin\Debug\net10.0\Npgsql.dll
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.csproj.AssemblyReference.cache
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.AssemblyInfoInputs.cache
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.AssemblyInfo.cs
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.sourcelink.json
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.csproj.Up2Date
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.dll
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\refint\trabalho1.dll
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.pdb
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\trabalho1.genruntimeconfig.cache
+C:\Users\Gabriel Saueressig\Documents\UFSM\labOO\laboo-2026\trabalho1\obj\Debug\net10.0\ref\trabalho1.dll
