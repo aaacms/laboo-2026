@@ -1,15 +1,29 @@
 projeto/Database/DatabaseConnection.cs
-
-# Pastas de saída de compilação
+## --- .NET / C# ---
 bin/
 obj/
-
-# Arquivos de cache e restore do NuGet
-.project.assets.json
-*.nuget.g.props
-*.nuget.g.targets
-
-# Arquivos de usuário do Visual Studio / VS Code
-.vscode/
+[Dd]ebug/
+[Rr]elease/
+*.exe
+*.dll
+*.pdb
 *.user
 *.suo
+*.sln.docstates
+
+## --- NuGet ---
+# Ignora os pacotes baixados e arquivos de restore
+.project.assets.json
+project.assets.json
+*.nuget.g.props
+*.nuget.g.targets
+project.nuget.cache
+
+## --- VS Code ---
+.vscode/
+.history/
+*.log
+
+## --- OS ---
+.DS_Store
+Thumbs.db
