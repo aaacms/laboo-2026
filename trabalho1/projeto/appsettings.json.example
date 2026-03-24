@@ -1,10 +1,10 @@
 {
   "Database": {
-    "Host": "localhost",
-    "Port": "5432",
-    "Username": "postgres",
-    "Password": "cacijoga",
-    "Name": "framework_CRUD"
+    "Host": "xxx",
+    "Port": "xxx",
+    "Username": "xxx",
+    "Password": "xxx",
+    "Name": "xxx"
   }
   
 }
