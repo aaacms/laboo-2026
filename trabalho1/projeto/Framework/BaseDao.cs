@@ -22,20 +22,24 @@ public class BaseDao<T> : IDao<T>
         }
 
         List<string> partes = new List<string>();
-        foreach(var prop in atributos)
+        foreach (var prop in atributos)
         {
-            if(prop.Name != "Id")
+            if (prop.Name != "Id")
             {
                 var valor = prop.GetValue(obj);
 
-                if(valor == null)
+                if (valor == null)
                 {
-                    
+
                     valor = "NULL";
                 }
-                else if(valor is string)
+                else if (valor is string)
                 {
                     valor = $"'{valor}'";
+                }
+                else if (valor is DateOnly dt)
+                {
+                    valor = $"'{dt:yyyy-MM-dd}'";
                 }
 
                 var parte = $"{valor}";
@@ -50,7 +54,7 @@ public class BaseDao<T> : IDao<T>
         command.ExecuteNonQuery();
     }
 
-    
+
     public void Update(T obj)
     {
         var atributos = typeof(T).GetProperties();
@@ -65,18 +69,18 @@ public class BaseDao<T> : IDao<T>
         var id = idProp.GetValue(obj);
         List<string> partes = new List<string>();
 
-        foreach(var prop in atributos)
+        foreach (var prop in atributos)
         {
-            if(prop.Name != "Id")
+            if (prop.Name != "Id")
             {
                 var valor = prop.GetValue(obj);
 
-                if(valor == null)
+                if (valor == null)
                 {
-                    
+
                     valor = "NULL";
                 }
-                else if(valor is string)
+                else if (valor is string)
                 {
                     valor = $"'{valor}'";
                 }
@@ -108,17 +112,17 @@ public class BaseDao<T> : IDao<T>
 
         using var command = _conn.CreateCommand();
         command.CommandText = sql;
-        using var reader =command.ExecuteReader();
-        
-        if(reader.Read())
+        using var reader = command.ExecuteReader();
+
+        if (reader.Read())
         {
             var obj = Activator.CreateInstance<T>();
             var atributos = typeof(T).GetProperties();
 
-            foreach(var prop in atributos)
+            foreach (var prop in atributos)
             {
                 var valor = reader[prop.Name.ToLower()];
-                if(valor != DBNull.Value)
+                if (valor != DBNull.Value)
                 {
                     prop.SetValue(obj, Convert.ChangeType(valor, prop.PropertyType));
                 }
@@ -139,14 +143,14 @@ public class BaseDao<T> : IDao<T>
         using var reader = command.ExecuteReader();
         List<T> lista = new List<T>();
         var atributos = typeof(T).GetProperties();
-        while(reader.Read())
+        while (reader.Read())
         {
             var obj = Activator.CreateInstance<T>();
 
-            foreach(var prop in atributos)
+            foreach (var prop in atributos)
             {
                 var valor = reader[prop.Name.ToLower()];
-                if(valor != DBNull.Value)
+                if (valor != DBNull.Value)
                 {
                     prop.SetValue(obj, Convert.ChangeType(valor, prop.PropertyType));
                 }

@@ -19,7 +19,7 @@ var autor2 = new Autor { Id = 002,Nome = "Autor 2"};
 var livro1 = new Livro { Titulo = "Livro 1", Id = 001, Autor_Id = 001};
 var livro2 = new Livro { Titulo = "Livro 2", Id = 002, Autor_Id = 002 };
 var user1 = new Usuario { Nome = "Usuario 1", Id = 001, Email = "usuario1@example.com" };
-var emprestimo1 = new Emprestimo { Id = 001, Livro_Id = 001, Usuario_Id = 001, Data_emprestimo = DateTime.Now };
+var emprestimo1 = new Emprestimo { Id = 001, Livro_Id = 001, Usuario_Id = 001, Data_emprestimo = DateOnly.FromDateTime(DateTime.Now) };
 
 var daoCliente = new BaseDao<Autor>(conn);
 var daoLivro = new BaseDao<Livro>(conn);
