@@ -14,5 +14,9 @@ string database = config["Database:Name"] ?? throw new Exception("Database:Name 
 var db = new DatabaseConnection($"Host={host};Port={port};Username={username};Password={password};Database={database}");
 var conn = db.GetConnection();
 
+var daoAutor = new BaseDao<Autor>(conn);
+var daoLivro = new BaseDao<Livro>(conn);
+var daoUsuario = new BaseDao<Usuario>(conn);
+var daoEmprestimo = new BaseDao<Emprestimo>(conn);
 
-// Menu.ExecutarCrud(daoCliente);
+var menu = new Menu(daoAutor, daoLivro, daoUsuario, daoEmprestimo);

@@ -1,6 +1,6 @@
 public class Menu
 {
-    public Menu()
+    public Menu(BaseDao<Autor> daoAutor, BaseDao<Livro> daoLivro, BaseDao<Usuario> daoUsuario, BaseDao<Emprestimo> daoEmprestimo)
     {
         bool running = true;
 
