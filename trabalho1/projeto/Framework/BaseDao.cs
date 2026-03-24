@@ -47,11 +47,16 @@ public class BaseDao<T> : IDao<T>
             }
         }
         var colunas = atributos.Where(p => p.Name != "Id").Select(p => p.Name.ToLower());
-        var sql = $"INSERT INTO {typeof(T).Name.ToLower()} ({string.Join(", ", colunas)}) VALUES ({string.Join(", ", partes)})";
+        var sql = $"INSERT INTO {typeof(T).Name.ToLower()} ({string.Join(", ", colunas)}) VALUES ({string.Join(", ", partes)}) RETURNING id";
 
         using var command = _conn.CreateCommand();
         command.CommandText = sql;
-        command.ExecuteNonQuery();
+
+        var idGerado = (int)command.ExecuteScalar();
+
+        idProp.SetValue(obj, Convert.ToInt32(idGerado));
+
+        
     }
 
 
