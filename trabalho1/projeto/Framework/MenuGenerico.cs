@@ -1,6 +1,6 @@
 using System.Reflection;
 
-public static class Menu
+public static class MenuGenerico
 {
     private sealed record MenuItem(string Opcao, string Descricao, Action Acao);
 
