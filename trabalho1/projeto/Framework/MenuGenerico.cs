@@ -1,4 +1,5 @@
 using System.Reflection;
+using projeto.Framework;
 
 public static class MenuGenerico
 {
@@ -18,7 +19,7 @@ public static class MenuGenerico
         while (true)
         {
             DesenharMenuCrud<T>(itens);
-            var opcao = LerTextoObrigatorio("Opção");
+            var opcao = Util.LerTextoObrigatorio("Opção");
 
             try
             {
@@ -55,31 +56,33 @@ public static class MenuGenerico
 
     private static void Inserir<T>(IDao<T> dao) where T : new()
     {
-        var obj = LerObjetoDoConsole<T>(incluirId: false);
+        var tela = new TelaConsole($"Inclusão de {typeof(T).Name}");
+        var obj = tela.MostrarFormulario<T>(incluirId: false);
         dao.Insert(obj);
-        Console.WriteLine("Registro inserido com sucesso.");
+        tela.MostrarMensagem("Registro inserido com sucesso.");
     }
 
     private static void Atualizar<T>(IDao<T> dao) where T : new()
     {
-        var obj = LerObjetoDoConsole<T>(incluirId: true);
+        var tela = new TelaConsole($"Atualização de {typeof(T).Name}");
+        var obj = tela.MostrarFormulario<T>(incluirId: true);
         dao.Update(obj);
-        Console.WriteLine("Registro atualizado com sucesso.");
+        tela.MostrarMensagem("Registro atualizado com sucesso.");
     }
 
     private static void Excluir<T>(IDao<T> dao) where T : new()
     {
-        var id = LerIntObrigatorio("Id para excluir");
+        var id = Util.LerIntObrigatorio("Id para excluir");
         dao.Delete(id);
         Console.WriteLine("Registro excluído com sucesso.");
     }
 
     private static void BuscarPorId<T>(IDao<T> dao) where T : new()
     {
-        var id = LerIntObrigatorio("Id para buscar");
+        var id = Util.LerIntObrigatorio("Id para buscar");
 
         var obj = dao.GetById(id);
-        ImprimirObjeto(obj);
+        Util.ImprimirObjeto(obj);
     }
 
     private static void ListarTodos<T>(IDao<T> dao) where T : new()
@@ -87,93 +90,11 @@ public static class MenuGenerico
         var lista = dao.GetAll();
         foreach (var item in lista)
         {
-            ImprimirObjeto(item);
+            Util.ImprimirObjeto(item);
             Console.WriteLine(new string('-', 30));
         }
 
         if (lista.Count == 0)
             Console.WriteLine("Nenhum registro encontrado.");
-    }
-
-    private static T LerObjetoDoConsole<T>(bool incluirId) where T : new()
-    {
-        var obj = new T();
-        var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-
-        foreach (var prop in props)
-        {
-            if (!prop.CanWrite) continue;
-            if (!incluirId && prop.Name.Equals("Id", StringComparison.OrdinalIgnoreCase)) continue;
-
-            Console.Write($"{prop.Name} ({prop.PropertyType.Name}): ");
-            var entrada = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(entrada))
-            {
-                prop.SetValue(obj, null);
-                continue;
-            }
-
-            var valorConvertido = Converter(entrada, prop.PropertyType);
-            prop.SetValue(obj, valorConvertido);
-        }
-
-        return obj;
-    }
-
-    private static int LerIntObrigatorio(string rotulo)
-    {
-        while (true)
-        {
-            Console.Write($"{rotulo}: ");
-            var entrada = Console.ReadLine();
-            if (int.TryParse(entrada, out var valor))
-            {
-                return valor;
-            }
-
-            Console.WriteLine("Valor inválido. Digite um número inteiro.");
-        }
-    }
-
-    private static string LerTextoObrigatorio(string rotulo)
-    {
-        while (true)
-        {
-            Console.Write($"{rotulo}: ");
-            var entrada = Console.ReadLine();
-            if (!string.IsNullOrWhiteSpace(entrada))
-            {
-                return entrada.Trim();
-            }
-
-            Console.WriteLine("Valor obrigatório.");
-        }
-    }
-
-    private static object? Converter(string valor, Type tipo)
-    {
-        var tipoReal = Nullable.GetUnderlyingType(tipo) ?? tipo;
-
-        if (tipoReal == typeof(string)) return valor;
-        if (tipoReal == typeof(int)) return int.Parse(valor);
-        if (tipoReal == typeof(long)) return long.Parse(valor);
-        if (tipoReal == typeof(decimal)) return decimal.Parse(valor);
-        if (tipoReal == typeof(double)) return double.Parse(valor);
-        if (tipoReal == typeof(float)) return float.Parse(valor);
-        if (tipoReal == typeof(bool)) return bool.Parse(valor);
-        if (tipoReal == typeof(DateTime)) return DateTime.Parse(valor);
-
-        return Convert.ChangeType(valor, tipoReal);
-    }
-
-    private static void ImprimirObjeto<T>(T obj)
-    {
-        var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-        foreach (var prop in props)
-        {
-            var valor = prop.GetValue(obj);
-            Console.WriteLine($"{prop.Name}: {valor}");
-        }
     }
 }
