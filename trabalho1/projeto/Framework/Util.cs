@@ -57,8 +57,10 @@ public static class Util
     public static void ImprimirObjeto<T>(T obj)
     {
         if (obj == null) return;
-        
-        var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+        // Usar obj.GetType() em vez de typeof(T) para pegar as propriedades reais da instância,
+        // mesmo se T for tratado como 'object' pelo compilador.
+        var props = obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
         foreach (var prop in props)
         {
             var valor = prop.GetValue(obj);
