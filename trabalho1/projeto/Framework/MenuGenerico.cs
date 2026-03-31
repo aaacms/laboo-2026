@@ -3,16 +3,16 @@ using projeto.Framework;
 
 public static class MenuGenerico
 {
-    
+
     private sealed record MenuItem(string Opcao, string Descricao, Action Acao);
 
-    public static void ExecutarCrud<T>(IDao<T> dao, List<T> lista) where T : new()
+    public static void ExecutarCrud<T>(IDao<T> dao, List<T> lista, IEnumerable<object> lista2 = null, IEnumerable<object> lista3 = null) where T : new()
     {
         var itens = new List<MenuItem>
         {
-            new("1", "Inserir", () => Inserir(dao)),
-            new("2", "Atualizar", () => Atualizar(dao)),
-            new("3", "Excluir", () => Excluir(dao)),
+            new("1", "Inserir", () => Inserir(dao, lista2, lista3)),
+            new("2", "Atualizar", () => Atualizar(dao, lista)),
+            new("3", "Excluir", () => Excluir(dao, lista)),
             new("4", "Buscar por Id", () => BuscarPorId(dao)),
             new("5", "Listar todos", () => ListarTodos(dao))
         };
@@ -55,24 +55,55 @@ public static class MenuGenerico
         Console.WriteLine("0 - Sair");
     }
 
-    private static void Inserir<T>(IDao<T> dao) where T : new()
+    private static void Inserir<T>(IDao<T> dao, IEnumerable<object> lista2, IEnumerable<object> lista3) where T : new()
     {
+        if (lista2 != null)
+        {
+            Console.WriteLine($"Lista de opções relacionadas:");
+            foreach (var item in lista2)
+            {
+                Util.ImprimirObjeto(item);
+                Console.WriteLine(new string('-', 30));
+            }
+        }
+        if (lista3 != null)
+        {
+            Console.WriteLine($"Lista de outras opções relacionadas:");
+            foreach (var item in lista3)
+            {
+                Util.ImprimirObjeto(item);
+                Console.WriteLine(new string('-', 30));
+            }
+        }
+
         var tela = new TelaConsole($"Inclusão de {typeof(T).Name}");
         var obj = tela.MostrarFormulario<T>(incluirId: false);
         dao.Insert(obj);
         tela.MostrarMensagem("Registro inserido com sucesso.");
     }
 
-    private static void Atualizar<T>(IDao<T> dao) where T : new()
+    private static void Atualizar<T>(IDao<T> dao, List<T> lista) where T : new()
     {
+        Console.WriteLine($"Lista de {typeof(T).Name}s disponíveis:");
+        foreach (var item in lista)
+        {
+            Util.ImprimirObjeto(item);
+            Console.WriteLine(new string('-', 30));
+        }
         var tela = new TelaConsole($"Atualização de {typeof(T).Name}");
         var obj = tela.MostrarFormulario<T>(incluirId: true);
         dao.Update(obj);
         tela.MostrarMensagem("Registro atualizado com sucesso.");
     }
 
-    private static void Excluir<T>(IDao<T> dao) where T : new()
+    private static void Excluir<T>(IDao<T> dao, List<T> lista) where T : new()
     {
+        Console.WriteLine($"Lista de {typeof(T).Name}s disponíveis:");
+        foreach (var item in lista)
+        {
+            Util.ImprimirObjeto(item);
+            Console.WriteLine(new string('-', 30));
+        }
         var id = Util.LerIntObrigatorio("Id para excluir");
         dao.Delete(id);
         Console.WriteLine("Registro excluído com sucesso.");

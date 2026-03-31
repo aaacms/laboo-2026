@@ -46,16 +46,16 @@ public class Menu
             switch (opcao)
             {
                 case "1":
-                    MenuGenerico.ExecutarCrud(daoAutor, listaAutores);
+                    MenuGenerico.ExecutarCrud(daoAutor, listaAutores, null, null);
                     break;
                 case "2":
-                    MenuGenerico.ExecutarCrud(daoLivro, listaLivros);
+                    MenuGenerico.ExecutarCrud(daoLivro, listaLivros, listaAutores, null);
                     break;
                 case "3":
-                    MenuGenerico.ExecutarCrud(daoUsuario, listaUsuarios);
+                    MenuGenerico.ExecutarCrud(daoUsuario, listaUsuarios, null, null);
                     break;
                 case "4":
-                    MenuGenerico.ExecutarCrud(daoEmprestimo, listaEmprestimos);
+                    MenuGenerico.ExecutarCrud(daoEmprestimo, listaEmprestimos, listaLivros, listaUsuarios);
                     break;
                 case "5":
                     running = false;
