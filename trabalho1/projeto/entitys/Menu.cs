@@ -1,9 +1,35 @@
+using Microsoft.VisualBasic;
+
 public class Menu
 {
+    private BaseDao<Autor> daoAutor;
+    private BaseDao<Livro> daoLivro;
+    private BaseDao<Usuario> daoUsuario;
+    private BaseDao<Emprestimo> daoEmprestimo;
+
+    private List<Autor> listaAutores;
+    private List<Livro> listaLivros;
+    private List<Usuario> listaUsuarios;
+    private List<Emprestimo> listaEmprestimos;
+
     public Menu(BaseDao<Autor> daoAutor, BaseDao<Livro> daoLivro, BaseDao<Usuario> daoUsuario, BaseDao<Emprestimo> daoEmprestimo)
     {
-        bool running = true;
 
+        this.daoAutor = daoAutor;
+        this.daoLivro = daoLivro;
+        this.daoUsuario = daoUsuario;
+        this.daoEmprestimo = daoEmprestimo;
+
+        this.listaAutores = daoAutor.GetAll();
+        this.listaLivros = daoLivro.GetAll();
+        this.listaUsuarios = daoUsuario.GetAll();
+        this.listaEmprestimos = daoEmprestimo.GetAll();
+
+    }
+
+    public void mostrarMenu()
+    {
+        bool running = true;
         while (running)
         {
             Console.Clear();
@@ -20,16 +46,16 @@ public class Menu
             switch (opcao)
             {
                 case "1":
-                    MenuGenerico.ExecutarCrud(daoAutor);
+                    MenuGenerico.ExecutarCrud(daoAutor, listaAutores);
                     break;
                 case "2":
-                    MenuGenerico.ExecutarCrud(daoLivro);
+                    MenuGenerico.ExecutarCrud(daoLivro, listaLivros);
                     break;
                 case "3":
-                    MenuGenerico.ExecutarCrud(daoUsuario);
+                    MenuGenerico.ExecutarCrud(daoUsuario, listaUsuarios);
                     break;
                 case "4":
-                    MenuGenerico.ExecutarCrud(daoEmprestimo);
+                    MenuGenerico.ExecutarCrud(daoEmprestimo, listaEmprestimos);
                     break;
                 case "5":
                     running = false;
@@ -41,5 +67,6 @@ public class Menu
                     break;
             }
         }
+
     }
 }

@@ -3,9 +3,10 @@ using projeto.Framework;
 
 public static class MenuGenerico
 {
+    
     private sealed record MenuItem(string Opcao, string Descricao, Action Acao);
 
-    public static void ExecutarCrud<T>(IDao<T> dao) where T : new()
+    public static void ExecutarCrud<T>(IDao<T> dao, List<T> lista) where T : new()
     {
         var itens = new List<MenuItem>
         {

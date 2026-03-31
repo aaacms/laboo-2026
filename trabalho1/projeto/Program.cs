@@ -20,3 +20,5 @@ var daoUsuario = new BaseDao<Usuario>(conn);
 var daoEmprestimo = new BaseDao<Emprestimo>(conn);
 
 var menu = new Menu(daoAutor, daoLivro, daoUsuario, daoEmprestimo);
+
+menu.mostrarMenu();
