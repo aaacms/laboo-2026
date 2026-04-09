@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace projeto.Framework; // ajuste o namespace conforme o seu projeto
+namespace projeto.Framework; 
 
 public static class Util
 {
@@ -53,13 +53,10 @@ public static class Util
         return Convert.ChangeType(valor, tipoReal);
     }
 
-    // Se desejar, esse método utilitário de impressão também se encaixa perfeitamente aqui:
     public static void ImprimirObjeto<T>(T obj)
     {
         if (obj == null) return;
 
-        // Usar obj.GetType() em vez de typeof(T) para pegar as propriedades reais da instância,
-        // mesmo se T for tratado como 'object' pelo compilador.
         var props = obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
         foreach (var prop in props)
         {
