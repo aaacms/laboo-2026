@@ -48,7 +48,7 @@ public static class Util
         if (tipoReal == typeof(double)) return double.Parse(valor);
         if (tipoReal == typeof(float)) return float.Parse(valor);
         if (tipoReal == typeof(bool)) return bool.Parse(valor);
-        if (tipoReal == typeof(DateTime)) return DateTime.Parse(valor);
+        if (tipoReal == typeof(DateOnly)) return DateOnly.ParseExact(valor, "yyyy-MM-dd");
 
         return Convert.ChangeType(valor, tipoReal);
     }
