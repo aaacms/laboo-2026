@@ -13,11 +13,6 @@ public class TelaConsole
         _acoesAssociadas = new List<Action>();
     }
 
-    public void AdicionarAcao(Action acao)
-    {
-        _acoesAssociadas.Add(acao);
-    }
-
     public T MostrarFormulario<T>(bool incluirId) where T : new()
     {
         Console.WriteLine($"\n=== {_titulo} ===");
@@ -41,12 +36,6 @@ public class TelaConsole
 
             var valorConvertido = Util.Converter(entrada, prop.PropertyType);
             prop.SetValue(obj, valorConvertido);
-        }
-
-        // Executar ações adicionais, se houver (ex: simular um botão "Confirmar")
-        foreach (var acao in _acoesAssociadas)
-        {
-            acao.Invoke();
         }
 
         return obj;
