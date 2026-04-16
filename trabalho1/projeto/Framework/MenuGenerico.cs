@@ -10,7 +10,7 @@ public static class MenuGenerico
     {
         var itens = new List<MenuItem>
         {
-            new("1", "Inserir", () => Inserir(dao, lista2, lista3)),
+            new("1", "Inserir", () => Inserir(dao, lista, lista2, lista3)),
             new("2", "Atualizar", () => Atualizar(dao, lista)),
             new("3", "Excluir", () => Excluir(dao, lista)),
             new("4", "Buscar por Id", () => BuscarPorId(dao)),
@@ -55,7 +55,7 @@ public static class MenuGenerico
         Console.WriteLine("0 - Sair");
     }
 
-    private static void Inserir<T>(IDao<T> dao, IEnumerable<object> lista2, IEnumerable<object> lista3) where T : new()
+    private static void Inserir<T>(IDao<T> dao, List<T> lista, IEnumerable<object> lista2, IEnumerable<object> lista3) where T : new()
     {
         if (lista2 != null)
         {
@@ -79,6 +79,7 @@ public static class MenuGenerico
         var tela = new TelaConsole($"Inclusão de {typeof(T).Name}");
         var obj = tela.MostrarFormulario<T>(incluirId: false);
         dao.Insert(obj);
+        lista.Add(obj); 
         tela.MostrarMensagem("Registro inserido com sucesso.");
     }
 
@@ -106,6 +107,14 @@ public static class MenuGenerico
         }
         var id = Util.LerIntObrigatorio("Id para excluir");
         dao.Delete(id);
+        
+        lista.RemoveAll(item =>
+        {
+            var propId = item.GetType().GetProperty("Id");
+            if (propId == null) return false;
+            var valorId = propId.GetValue(item);
+            return valorId != null && valorId.Equals(id);
+        });
         Console.WriteLine("Registro excluído com sucesso.");
     }
 
