@@ -12,5 +12,33 @@ string password = config["Database:Password"] ?? throw new Exception("Database:P
 string database = config["Database:Name"] ?? throw new Exception("Database:Name não foi definido.");
 
 var db = new DatabaseConnection($"Host={host};Port={port};Username={username};Password={password};Database={database}");
-var conn = db.GetConnection();
+
+RepositorySchema test = new RepositorySchema(db);
+
+
+try 
+{
+
+    List<TableInfo> esquema = test.ListTables();
+
+    Console.WriteLine("\n--- RESULTADO DO MAPEAMENTO ---");
+
+
+    foreach (var tabela in esquema)
+    {
+        Console.WriteLine($"\nTABELA: {tabela.Nome.ToUpper()}");
+        Console.WriteLine(new string('-', 30));
+
+
+        foreach (var col in tabela.Columns)
+        {
+            string marcadorPK = col.EhChavePrimaria ? "[PK] " : "     ";
+            Console.WriteLine($"{marcadorPK}{col.Nome,-15} | Tipo: {col.Tipo}");
+        }
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Erro ao testar: {ex.Message}");
+}
 
