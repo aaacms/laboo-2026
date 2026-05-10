@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 
 var config = new ConfigurationBuilder()
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("projeto/appsettings.json", optional: false, reloadOnChange: true)
+    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
     .Build();
 
 string host = config["Database:Host"] ?? throw new Exception("Database:Host não foi definido.");
@@ -15,16 +15,15 @@ var db = new DatabaseConnection($"Host={host};Port={port};Username={username};Pa
 
 RepositorySchema test = new RepositorySchema(db);
 
-
 try 
 {
 
-    List<TableInfo> esquema = test.ListTables();
+    List<TableInfo> schema = test.ListTables();
 
     Console.WriteLine("\n--- RESULTADO DO MAPEAMENTO ---");
 
 
-    foreach (var tabela in esquema)
+    foreach (var tabela in schema)
     {
         Console.WriteLine($"\nTABELA: {tabela.Nome.ToUpper()}");
         Console.WriteLine(new string('-', 30));
@@ -36,6 +35,10 @@ try
             Console.WriteLine($"{marcadorPK}{col.Nome,-15} | Tipo: {col.Tipo}");
         }
     }
+
+    
+    string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "OutputGerado");
+    CodeGenerator.GenerateCode(schema, outputDir);
 }
 catch (Exception ex)
 {
