@@ -4,7 +4,8 @@
     "Port": "xxx",
     "Username": "xxx",
     "Password": "xxx",
-    "Name": "xxx"
-  }
+  },
+
+  "GOOGLE_API_KEY": "xxxxxxxxxxxxx";
   
 }
